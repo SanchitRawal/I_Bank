@@ -1,7 +1,54 @@
-import { Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import Ionicons from '@react-native-vector-icons/ionicons';
 
 const DashBoard = () => {
+  const sampleData = [
+    {
+      name: 'account',
+      label: 'Account and Card',
+      icon: '',
+    },
+    {
+      name: 'transfer',
+      label: 'Transfer',
+      icon: '',
+    },
+    {
+      name: 'withdraw',
+      label: 'Withdraw',
+      icon: '',
+    },
+    {
+      name: 'mobile',
+      label: 'Mobile prepaid',
+      icon: '',
+    },
+    {
+      name: 'bill',
+      label: 'Pay the bill',
+      icon: '',
+    },
+    {
+      name: 'save',
+      label: 'Save Online',
+      icon: '',
+    },
+    {
+      name: 'credit',
+      label: 'Credit card',
+      icon: '',
+    },
+    {
+      name: 'report',
+      label: 'Transaction Report',
+      icon: '',
+    },
+    {
+      name: 'beneficiary',
+      label: 'Beneficiary',
+      icon: '',
+    },
+  ];
   return (
     <View style={{ flex: 1, backgroundColor: '#281C9D' }}>
       <View
@@ -46,7 +93,122 @@ const DashBoard = () => {
           padding: 20,
           gap: 14,
         }}
-      ></View>
+      >
+        <View
+          style={{
+            backgroundColor: '#281C9D',
+            borderRadius: 20,
+            padding: 20,
+            justifyContent: 'space-between',
+          }}
+        >
+          <View>
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 18,
+                fontWeight: '600',
+              }}
+            >
+              John Smith
+            </Text>
+
+            <Text
+              style={{
+                color: '#E4E4E4',
+                fontSize: 14,
+                marginTop: 35,
+              }}
+            >
+              Amazon Platinum
+            </Text>
+
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 20,
+                marginTop: 10,
+                letterSpacing: 2,
+              }}
+            >
+              4756 •••• •••• 9018
+            </Text>
+
+            <Text
+              style={{
+                color: '#fff',
+                fontSize: 32,
+                fontWeight: '700',
+                marginTop: 10,
+              }}
+            >
+              $3,469.52
+            </Text>
+          </View>
+
+          <Text
+            style={{
+              position: 'absolute',
+              right: 25,
+              bottom: 28,
+              color: '#fff',
+              fontSize: 24,
+              fontWeight: '800',
+            }}
+          >
+            VISA
+          </Text>
+        </View>
+        <FlatList
+          data={sampleData}
+          style={{ flexDirection: 'row' }}
+          numColumns={3}
+          columnWrapperStyle={{
+            justifyContent: 'space-evenly',
+            gap: 14,
+          }}
+          contentContainerStyle={{
+            gap: 14,
+            overflow: 'hidden',
+            flex: 1,
+            padding: 2,
+          }}
+          renderItem={({ item, index }) => {
+            return (
+              <View
+                style={{
+                  width: '30%',
+                  backgroundColor: '#fff',
+                  borderRadius: 18,
+                  paddingVertical: 14,
+                  paddingHorizontal: 8,
+                  alignItems: 'center',
+                  borderRadius: 18,
+                  borderWidth: 0,
+                  elevation: 4.2,
+                  shadowOpacity: 0.1,
+                  shadowRadius: 20,
+                  gap: 4,
+                }}
+              >
+                <Ionicons name="wallet-outline" size={24} color="#281C9D" />
+
+                <Text
+                  style={{
+                    marginTop: 8,
+                    textAlign: 'center',
+                    color: '#979797',
+                    fontSize: 12,
+                  }}
+                  numberOfLines={2}
+                >
+                  {item.label}
+                </Text>
+              </View>
+            );
+          }}
+        />
+      </View>
     </View>
   );
 };
