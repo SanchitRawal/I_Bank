@@ -73,7 +73,7 @@ const AppNavigator = () => {
 
         tabBarStyle: {
           height: 70,
-          backgroundColor: '#fff',
+          backgroundColor: '#F2F2F2',
           paddingHorizontal: 10,
         },
 
@@ -86,9 +86,49 @@ const AppNavigator = () => {
       })}
     >
       <Stack.Screen name="Home" component={DashBoard} />
-      <Stack.Screen name="Search" component={Search} />
-      <Stack.Screen name="Messages" component={Messages} />
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={({ navigation }) => ({
+          headerShown: true,
+          headerStyle: {backgroundColor: "#F2F2F20", borderBottomWidth: 0, elevation: 0},
+          headerLeft: () => (
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              onPress={() => navigation.goBack()}
+            />
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="Messages"
+        component={Messages}
+        options={({ navigation }) => ({
+          headerShown: true,
+          headerLeft: () => (
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              onPress={() => navigation.goBack()}
+            />
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={({ navigation }) => ({
+          headerShown: true,
+          headerLeft: () => (
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              onPress={() => navigation.goBack()}
+            />
+          ),
+        })}
+      />
     </Stack.Navigator>
   );
 };
