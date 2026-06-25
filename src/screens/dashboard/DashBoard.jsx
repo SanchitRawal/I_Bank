@@ -1,7 +1,10 @@
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import Ionicons from '@react-native-vector-icons/ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 const DashBoard = () => {
+  const navigation = useNavigation()
+  console.log(navigation,'dasdas')
   const sampleData = [
     {
       name: 'account',
@@ -12,6 +15,7 @@ const DashBoard = () => {
       name: 'transfer',
       label: 'Transfer',
       icon: '',
+      screenName: 'Transfer' 
     },
     {
       name: 'withdraw',
@@ -175,7 +179,7 @@ const DashBoard = () => {
           }}
           renderItem={({ item, index }) => {
             return (
-              <View
+              <TouchableOpacity
                 style={{
                   width: '30%',
                   backgroundColor: '#fff',
@@ -190,6 +194,7 @@ const DashBoard = () => {
                   shadowRadius: 20,
                   gap: 4,
                 }}
+                onPress={()=> navigation.navigate(item.screenName)}
               >
                 <Ionicons name="wallet-outline" size={24} color="#281C9D" />
 
@@ -204,7 +209,7 @@ const DashBoard = () => {
                 >
                   {item.label}
                 </Text>
-              </View>
+              </TouchableOpacity>
             );
           }}
         />

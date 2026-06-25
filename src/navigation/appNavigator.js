@@ -7,6 +7,7 @@ import Messages from '../screens/messages/Messages';
 import Settings from '../screens/settings/Settings';
 import { Text, TouchableOpacity, View } from 'react-native';
 import Ionicons from '@react-native-vector-icons/ionicons';
+import ScreenNavigator from '../navigation/screenNavigator'
 
 // import SignUp from '../screens/login/SignUp'
 
@@ -85,7 +86,7 @@ const AppNavigator = () => {
         ),
       })}
     >
-      <Stack.Screen name="Home" component={DashBoard} />
+      <Stack.Screen name="Home" component={ScreenNavigator} />
       <Stack.Screen
         name="Search"
         component={Search}
