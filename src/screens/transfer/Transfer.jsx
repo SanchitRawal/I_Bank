@@ -10,8 +10,11 @@ import {
   View,
 } from 'react-native';
 import { Shadow } from 'react-native-shadow-2';
+import { useNavigation } from '@react-navigation/native';
 
 const Transfer = () => {
+  const navigation = useNavigation();
+
   const [name, setName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
 
@@ -206,6 +209,7 @@ const Transfer = () => {
               alignItems: 'center',
               backgroundColor: '#281C9D',
             }}
+            onPress={() => navigation.navigate('Confirmation')}
           >
             <Text style={{ color: '#fff', fontSize: 18, fontWeight: '500' }}>
               Confirm
