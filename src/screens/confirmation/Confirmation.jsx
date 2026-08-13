@@ -1,7 +1,18 @@
 import { useMemo, useState } from 'react';
-import { FlatList, Text, TextInput, View } from 'react-native';
+import {
+  FlatList,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import ConfirmImg from '../../assets/mainIcons/confirmImage.svg';
 
 const Confirmation = () => {
+  const navigation = useNavigation();
+  const [isConfirm, setIsConfirm] = useState(false);
+
   const formData = [
     {
       label: 'From',
@@ -39,7 +50,7 @@ const Confirmation = () => {
       type: 'InputField',
     },
   ];
-  
+
   const [formValues, setFormValues] = useState({});
 
   const handleChanges = (key, value) => {
@@ -68,16 +79,56 @@ const Confirmation = () => {
     );
   };
 
+  const transferSuccess = () => {
+    return (
+      <View style={{ gap: 26, alignItems: 'center' }}>
+        <ConfirmImg />
+        <Text style={{ color: '#281C9D', fontWeight: '800', fontSize: 18 }}>
+          Transfer successful!
+        </Text>
+        <View style={{ gap: 6, alignItems: 'center' }}>
+          <Text style={{ fontSize: 16, fontWeight: '500' }}>
+            You have successfully transferred{' '}
+          </Text>
+          <Text style={{ color: '#281C9D', fontWeight: '600', fontSize: 16 }}>
+            <Text style={{ color: '#FF4267' }}>$1000</Text> to Amanda
+          </Text>
+        </View>
+      </View>
+    );
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: '#fff', padding: 20, gap: 20 }}>
-      <Text style={{ fontSize: 18, color: '#989898' }}>
-        Confirm transaction information
-      </Text>
-      <FlatList
-        data={formData}
-        renderItem={formDesign}
-        contentContainerStyle={{ gap: 12 }}
-      />
+      {!isConfirm ? (
+        <>
+          <Text style={{ fontSize: 18, color: '#989898' }}>
+            Confirm transaction information
+          </Text>
+          <FlatList
+            data={formData}
+            renderItem={formDesign}
+            contentContainerStyle={{ gap: 12 }}
+          />
+        </>
+      ) : (
+        transferSuccess()
+      )}
+      <TouchableOpacity
+        style={{
+          borderRadius: 16,
+          padding: 14,
+          alignItems: 'center',
+          backgroundColor: '#281C9D',
+        }}
+        onPress={() =>
+          isConfirm ? navigation.navigate('DashBoard') : setIsConfirm(true)
+        }
+      >
+        <Text style={{ color: '#fff', fontSize: 18, fontWeight: '500' }}>
+          Confirm
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
