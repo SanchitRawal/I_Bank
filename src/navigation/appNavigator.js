@@ -121,9 +121,12 @@ const AppNavigator = () => {
         component={Settings}
         options={({ navigation }) => ({
           headerShown: true,
+          headerTitleStyle: {color: '#fff'},
+          headerStyle: {backgroundColor: '#281C9D'},
           headerLeft: () => (
             <Ionicons
               name="arrow-back"
+              style={{color: '#fff'}}
               size={24}
               onPress={() => navigation.goBack()}
             />
