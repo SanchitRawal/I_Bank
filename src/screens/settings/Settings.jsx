@@ -1,7 +1,14 @@
 import Ionicons from '@react-native-vector-icons/ionicons';
-import { View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 const Settings = () => {
+  const labels = [
+    'Password',
+    'Touch Id',
+    'Language',
+    'App Information',
+    'CustomerCare',
+  ];
   return (
     <View style={{ flex: 1, backgroundColor: '#281C9D' }}>
       <View
@@ -18,20 +25,63 @@ const Settings = () => {
           paddingHorizontal: 20,
         }}
       ></View>
-      <View
-        style={{
-          padding: 30,
-          borderWidth: 2,
-          borderRadius: 50,
-          backgroundColor: '#281C9D',
-          alignSelf: 'center',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        {' '}
-        <Ionicons name="person-outline" size={24} color="#fff" />
+      <View style={{ alignItems: 'center', gap: 10 }}>
+        <View
+          style={{
+            padding: 30,
+            borderWidth: 2,
+            borderRadius: 50,
+            backgroundColor: '#281C9D',
+            alignSelf: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          {' '}
+          <Ionicons name="person-outline" size={24} color="#fff" />
+        </View>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: '500',
+            letterSpacing: 0.3,
+            color: '#281C9D',
+          }}
+        >
+          Jhon Doe
+        </Text>
       </View>
+      <ScrollView contentContainerStyle={{ gap: 20 }} style={{ padding: 20 }}>
+        {labels?.map((item, index) => {
+          return (
+            <TouchableOpacity
+              key={index}
+              style={{
+                flexDirection: 'row',
+                flex: 1,
+                justifyContent: 'space-between',
+                borderBottomWidth: 1,
+                paddingBottom: 10,
+                borderColor: '#ECECEC',
+              }}
+            >
+              <Text style={{ fontSize: 18 }}>{item}</Text>
+              {item === 'CustomerCare' ? (
+                <Text style={{ color: '#979797', fontWeight: '500' }}>
+                  1800000035
+                </Text>
+              ) : (
+                <Ionicons
+                  name="arrow-forward"
+                  size={20}
+                  color={'#ECECEC'}
+                  style={{ fontWeight: '700' }}
+                />
+              )}
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
     </View>
   );
 };
