@@ -1,13 +1,16 @@
 import Ionicons from '@react-native-vector-icons/ionicons';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Settings = () => {
+  const navigation = useNavigation();
+
   const labels = [
-    'Password',
-    'Touch Id',
-    'Language',
-    'App Information',
-    'CustomerCare',
+    { title: 'Password', nav: 'PasswordChange' },
+    { title: 'Touch Id', nav: 'TouchId' },
+    { title: 'Language', nav: 'Language' },
+    { title: 'App Information', nav: 'AppInfo' },
+    { title: 'CustomerCare', nav: 'CustomerCare' },
   ];
   return (
     <View style={{ flex: 1, backgroundColor: '#281C9D' }}>
@@ -56,6 +59,9 @@ const Settings = () => {
           return (
             <TouchableOpacity
               key={index}
+              onPress={() =>
+                navigation.navigate('ScreenNavigator', { screen: item?.nav })
+              }
               style={{
                 flexDirection: 'row',
                 flex: 1,
@@ -65,7 +71,7 @@ const Settings = () => {
                 borderColor: '#ECECEC',
               }}
             >
-              <Text style={{ fontSize: 18 }}>{item}</Text>
+              <Text style={{ fontSize: 18 }}>{item?.title}</Text>
               {item === 'CustomerCare' ? (
                 <Text style={{ color: '#979797', fontWeight: '500' }}>
                   1800000035

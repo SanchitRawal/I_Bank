@@ -194,7 +194,7 @@ const DashBoard = () => {
                   shadowRadius: 20,
                   gap: 4,
                 }}
-                onPress={()=> navigation.navigate(item.screenName)}
+                onPress={()=> navigation.navigate('ScreenNavigator',{screen: item.screenName})}
               >
                 <Ionicons name="wallet-outline" size={24} color="#281C9D" />
 

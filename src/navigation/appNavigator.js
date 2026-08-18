@@ -86,7 +86,7 @@ const AppNavigator = () => {
         ),
       })}
     >
-      <Stack.Screen name="Home" component={ScreenNavigator} />
+      <Stack.Screen name="Home" component={DashBoard} />
       <Stack.Screen
         name="Search"
         component={Search}
