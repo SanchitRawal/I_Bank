@@ -3,54 +3,62 @@ import Ionicons from '@react-native-vector-icons/ionicons';
 import { useNavigation } from '@react-navigation/native';
 
 const DashBoard = () => {
-  const navigation = useNavigation()
-  console.log(navigation,'dasdas')
+  const navigation = useNavigation();
+  console.log(navigation, 'dasdas');
   const sampleData = [
     {
       name: 'account',
       label: 'Account and Card',
       icon: '',
+      screenName: 'Transfer',
     },
     {
       name: 'transfer',
       label: 'Transfer',
       icon: '',
-      screenName: 'Transfer' 
+      screenName: 'Transfer',
     },
     {
       name: 'withdraw',
       label: 'Withdraw',
       icon: '',
+      screenName: 'Transfer',
     },
     {
       name: 'mobile',
       label: 'Mobile prepaid',
       icon: '',
+      screenName: 'Transfer',
     },
     {
       name: 'bill',
       label: 'Pay the bill',
       icon: '',
+      screenName: 'Transfer',
     },
     {
       name: 'save',
       label: 'Save Online',
       icon: '',
+      screenName: 'Transfer',
     },
     {
       name: 'credit',
       label: 'Credit card',
       icon: '',
+      screenName: 'Transfer',
     },
     {
       name: 'report',
       label: 'Transaction Report',
       icon: '',
+      screenName: 'TransactionReport',
     },
     {
       name: 'beneficiary',
       label: 'Beneficiary',
       icon: '',
+      screenName: 'Transfer',
     },
   ];
   return (
@@ -194,7 +202,11 @@ const DashBoard = () => {
                   shadowRadius: 20,
                   gap: 4,
                 }}
-                onPress={()=> navigation.navigate('ScreenNavigator',{screen: item.screenName})}
+                onPress={() =>
+                  navigation.navigate('ScreenNavigator', {
+                    screen: item.screenName,
+                  })
+                }
               >
                 <Ionicons name="wallet-outline" size={24} color="#281C9D" />
 
