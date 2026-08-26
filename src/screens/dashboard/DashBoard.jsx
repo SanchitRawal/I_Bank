@@ -10,7 +10,7 @@ const DashBoard = () => {
       name: 'account',
       label: 'Account and Card',
       icon: '',
-      screenName: 'Transfer',
+      screenName: 'AccountAndCard',
     },
     {
       name: 'transfer',

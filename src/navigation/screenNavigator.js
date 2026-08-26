@@ -5,6 +5,7 @@ import DashBoard from "../screens/dashboard/DashBoard";
 import AppInfo from "../screens/settings/appInfo/AppInfo"
 import PasswordChange from "../screens/settings/forgetPass/PasswordChange";
 import TransactionReport from "../screens/transactionReport/TransactionReport"
+import AccountAndCard from "../screens/account&card/AccountAndCard";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ const ScreenNavigator = () => {
             <Stack.Screen name="Confirmation" component={Confirmation}/>
             <Stack.Screen name="AppInfo" component={AppInfo}/>
             <Stack.Screen name="PasswordChange" component={PasswordChange}/>
+            <Stack.Screen name="AccountAndCard" component={AccountAndCard}/>
         </Stack.Navigator>
     )
 };
