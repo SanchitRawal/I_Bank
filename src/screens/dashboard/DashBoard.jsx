@@ -22,13 +22,13 @@ const DashBoard = () => {
       name: 'withdraw',
       label: 'Withdraw',
       icon: '',
-      screenName: 'Transfer',
+      screenName: 'WithDraw',
     },
     {
       name: 'mobile',
       label: 'Mobile prepaid',
       icon: '',
-      screenName: 'Transfer',
+      screenName: 'MobilePrepaid',
     },
     {
       name: 'bill',

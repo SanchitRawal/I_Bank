@@ -8,39 +8,65 @@ const AccountAndCard = () => {
 
   return (
     <View
-      style={{ flex: 1, backgroundColor: '#fff', paddingVertical: 20, gap: 18, paddingHorizontal: 20 }}
+      style={{
+        flex: 1,
+        backgroundColor: '#fff',
+        paddingVertical: 20,
+        gap: 18,
+        paddingHorizontal: 20,
+      }}
     >
       <View
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
           gap: 30,
-        //   paddingHorizontal: 30,
+          //   paddingHorizontal: 30,
         }}
       >
         <TouchableOpacity
           onPress={() => setIsAccount(true)}
-          style={{
-            borderWidth: 1,
-            flex: 1,
-            padding: 10,
-            borderRadius: 14,
-            alignItems: 'center',
-          }}
+          style={[
+            {
+              flex: 1,
+              padding: 10,
+              borderRadius: 14,
+              alignItems: 'center',
+              backgroundColor: '#F2F1F9',
+            },
+            isAccount && { backgroundColor: '#281C9D' },
+          ]}
         >
-          <Text>Account</Text>
+          <Text
+            style={[
+              { fontWeight: '600', fontSize: 16, color: '#000' },
+              isAccount && { color: '#fff' },
+            ]}
+          >
+            Account
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setIsAccount(false)}
-          style={{
-            borderWidth: 1,
-            flex: 1,
-            padding: 10,
-            borderRadius: 14,
-            alignItems: 'center',
-          }}
+          style={[
+            {
+              flex: 1,
+              padding: 10,
+              borderRadius: 14,
+              alignItems: 'center',
+              backgroundColor: '#F2F1F9',
+            },
+            !isAccount && { backgroundColor: '#281C9D' },
+          ]}
         >
-          <Text>Cards</Text>
+          <Text
+            style={[
+              { fontWeight: '600', fontSize: 16, color: '#000' },
+              !isAccount && { color: '#fff' },
+            ]}
+          >
+            Cards
+          </Text>
         </TouchableOpacity>
       </View>
       {isAccount ? <Accounts /> : <Cards />}
