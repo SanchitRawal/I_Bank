@@ -34,7 +34,7 @@ const DashBoard = () => {
       name: 'bill',
       label: 'Pay the bill',
       icon: '',
-      screenName: 'Transfer',
+      screenName: 'PayBill',
     },
     {
       name: 'save',
